@@ -7,7 +7,7 @@ body {
 }
 header {
   background: #aa5ffb;
-  padding: 15px;
+  padding: 19px;
 }
 footer{
   width: 100%;
@@ -25,32 +25,33 @@ nav ul {
   display: inline;
   margin-right: 30px;
 }
-/*nav ul li {*/
-/*  display: list-item;*/
-/*  margin: 15px;*/
-/*}*/
 
-.margini{
-  margin: 19px;
-}
 
 a {
   color: white;
   text-decoration: none;
+  font-family: Arial, sans-serif;
 }
 
 a:hover {
-  text-decoration: underline;
+  color: #49187e;             /* обычный цвет ссылки */
+  text-decoration: none;
+  font-family: Arial, sans-serif;
 }
 
 section {
   padding: 20px;
+  margin: 11px;
+  border-radius: 15px;
 }
+
 
 table {
   width: 60%;
   border-collapse: collapse;
   margin: 20px 0;
+  width: 100%;
+  border: none;
 }
 
 th, td {
@@ -61,10 +62,6 @@ th, td {
   font-size: 30px;
   width: 100px;
   height: 100px;
-}
-table{
-  width: 100%;
-  border: none;
 }
 
 .album {
@@ -77,4 +74,48 @@ table{
   width: 100px;
   height: 100px;
 }
+p{
+  margin: 10px;
+}
 
+.mainbox{
+  background: #574d60;
+  display: flex;
+  gap: 40px;
+  padding: 40px;
+  height: auto
+}
+.profile-photo img{
+  width: 200px;
+  height: 200px;
+  object-fit: cover;
+  border-radius: 50%;
+}
+
+.profile-info h2 {
+  font-size: 40px;
+}
+.header-content {
+  display: flex;
+  align-items: center;
+}
+#serif-text {
+  font-family: "Times New Roman", serif;
+  font-size: 20px;
+  font-weight: normal;
+}
+
+#sans-text {
+  font-family: Arial, sans-serif;
+  font-size: 22px;
+  font-weight: bold;
+}
+
+#mono-text {
+  font-family: "Courier New", monospace;
+  font-size: 18px;
+  font-style: italic;
+}
+/** {*/
+/*  border: 1px solid red; !* красная рамка вокруг всего *!*/
+/*}*/
