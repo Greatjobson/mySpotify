@@ -6,22 +6,31 @@ body {
   padding: 0;
 }
 header {
-  background: #aa5ffb;
+  background: #9370DB;
   padding: 19px;
 }
-footer{
-  width: 100%;
-  background: #ac83d5;
-  padding: 20px;
-  color: #121212;
-  bottom: 0;
+footer {
+  text-align: center;
+  background: #1c1c1c;
+  color: #ccc;
+  padding: 30px 0;
+  border-top: 1px solid #333;
 }
-nav ul {
-  list-style: none;
-  padding: 0;
+.navbar-nav .nav-link {
+  color: #ccc !important;
+  transition: color 0.3s ease;
 }
 
-.navigate li{
+.navbar-nav .nav-link:hover,
+.navbar-nav .nav-link.fw-bold {
+  color: #ffffff !important;
+}
+footer p {
+  margin: 0;
+  font-size: 0.9rem;
+}
+nav ul li{
+  padding: 0;
   display: inline;
   margin-right: 30px;
 }
@@ -34,7 +43,7 @@ a {
 }
 
 a:hover {
-  color: #49187e;             /* обычный цвет ссылки */
+  color: #49187e;
   text-decoration: none;
   font-family: Arial, sans-serif;
 }
@@ -45,7 +54,39 @@ section {
   border-radius: 15px;
 }
 
-
+.mainbox .container {
+  max-width: none !important;
+  width: 100% !important;
+  padding: 0;
+}
+.album-grid {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 20px;
+  justify-content: flex-start;
+}
+.album-card {
+  flex: 0 0 auto;
+  width: 150px;
+  text-align: center;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+.album-card:hover {
+  transform: scale(1.05);
+  box-shadow: 0 0 15px rgba(255, 255, 255, 0.2);
+}
+.album-card img.album {
+  width: 150px;
+  height: 150px;
+  object-fit: cover;
+  border-radius: 8px;
+  display: block;
+}
+.album-card p {
+  margin: 5px 0 0 0;
+  font-size: 1rem;
+  color: #ccc;
+}
 table {
   width: 60%;
   border-collapse: collapse;
@@ -94,6 +135,20 @@ p{
 
 .profile-info h2 {
   font-size: 40px;
+}
+.custom-card {
+  background: transparent;
+  border: none;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  color:white;
+}
+
+.custom-card:hover {
+  transform: scale(1.05);
+  box-shadow: 0 0 15px rgba(255, 255, 255, 0.2);
 }
 .header-content {
   display: flex;
