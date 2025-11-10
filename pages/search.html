@@ -4,22 +4,20 @@
   <meta charset="UTF-8">
   <title>Search — MySpotify</title>
   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
-  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.css" rel="stylesheet">
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" defer></script>
   <link rel="stylesheet" href="../css/style.css">
 </head>
 
-<body class="text-white">
+<body>
 
-<!-- Навигация -->
 <header>
   <nav class="navbar navbar-expand-lg">
     <div class="container-fluid d-flex justify-content-between align-items-center flex-row-reverse">
       <h1 class="text-white mb-0">Search</h1>
-
       <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
         <span class="navbar-toggler-icon"></span>
       </button>
-
       <div class="collapse navbar-collapse" id="navbarNav">
         <ul class="navbar-nav me-auto">
           <li class="nav-item"><a class="nav-link text-white" href="index.html">HOME</a></li>
@@ -33,128 +31,135 @@
   </nav>
 </header>
 
-<!-- Поисковая форма -->
-<section class="mainbox container-fluid">
+<section class="mainbox py-5">
   <div class="container">
-    <h2 class="mb-4">Find your music</h2>
-    <p>You can search for songs here, and your search history will be saved.</p>
-
-    <form class="mt-3">
-      <div class="mb-3">
-        <label for="song" class="form-label">Enter a song:</label>
-        <input type="text" id="song" name="song" class="form-control bg-dark text-white border-secondary" placeholder="e.g., Imagine Dragons">
-      </div>
-
-      <div class="mb-3">
-        <label for="genre" class="form-label">Favorite genre:</label>
-        <select id="genre" name="genre" class="form-select bg-dark text-white border-secondary">
-          <option>Rock</option>
-          <option>Pop</option>
-          <option>Rap</option>
-          <option>Jazz</option>
-        </select>
-      </div>
-
-      <button type="submit" class="btn btn-outline-light">Search</button>
+    <h2 class="mb-4">Search for music</h2>
+    <form id="search-form" class="d-flex gap-3 mb-5">
+      <input
+        type="text"
+        id="search-input"
+        class="form-control form-control-lg bg-dark text-white border-secondary"
+        placeholder="Song or artist..."
+      >
+      <button type="submit" class="btn btn-success btn-lg px-5">Search</button>
     </form>
+
+    <div id="search-results" class="row g-4"></div>
   </div>
 </section>
 
-<!-- История поиска -->
-<section class="mainbox container-fluid py-5" style="background: #4f4c53;">
+<section class="mainbox py-5" style="background: #181818;">
   <div class="container">
-    <h3 class="text-white mb-4">History:</h3>
-    <div class="row g-4">
-      <!-- Карточка 1 -->
+    <h3 class="text-white mb-4">Recently played</h3>
+    <div class="row g-4" id="recently-played">
       <div class="col-6 col-sm-4 col-md-3 col-lg-2">
-        <div class="card bg-dark text-white border-0">
-          <img src="../img/chromakopia.jpg" class="card-img-top rounded-3" alt="1">
-          <div class="card-body text-center p-2">
-            <p class="card-text small">Name 1</p>
-          </div>
+        <div class="search-card">
+          <img src="../img/weeknd.jpg" class="img-fluid rounded-2 mb-3">
+          <h6 class="text-white mb-1">Blinding Lights</h6>
+          <p class="text-muted small mb-0">The Weeknd</p>
+          <button class="search-play-btn"><i class="bi bi-play-fill"></i></button>
         </div>
       </div>
-
-      <!-- Карточка 2 -->
       <div class="col-6 col-sm-4 col-md-3 col-lg-2">
-        <div class="card bg-dark text-white border-0">
-          <img src="../img/currents.jpg" class="card-img-top rounded-3" alt="2">
-          <div class="card-body text-center p-2">
-            <p class="card-text small">Name 2</p>
-          </div>
+        <div class="search-card">
+          <img src="../img/believer.jpg" class="img-fluid rounded-2 mb-3">
+          <h6 class="text-white mb-1">Believer</h6>
+          <p class="text-muted small mb-0">Imagine Dragons</p>
+          <button class="search-play-btn"><i class="bi bi-play-fill"></i></button>
         </div>
       </div>
-
-      <!-- Карточка 3 -->
       <div class="col-6 col-sm-4 col-md-3 col-lg-2">
-        <div class="card bg-dark text-white border-0">
-          <img src="../img/Graduation.jpg" class="card-img-top rounded-3" alt="3">
-          <div class="card-body text-center p-2">
-            <p class="card-text small">Name 3</p>
-          </div>
+        <div class="search-card">
+          <img src="../img/currents.jpg" class="img-fluid rounded-2 mb-3">
+          <h6 class="text-white mb-1">Let It Happen</h6>
+          <p class="text-muted small mb-0">Tame Impala</p>
+          <button class="search-play-btn"><i class="bi bi-play-fill"></i></button>
         </div>
       </div>
-
-      <!-- Остальные карточки -->
       <div class="col-6 col-sm-4 col-md-3 col-lg-2">
-        <div class="card bg-dark text-white border-0">
-          <img src="../img/chromakopia.jpg" class="card-img-top rounded-3" alt="4">
-          <div class="card-body text-center p-2">
-            <p class="card-text small">Name 4</p>
-          </div>
+        <div class="search-card">
+          <img src="../img/chromakopia.jpg" class="img-fluid rounded-2 mb-3">
+          <h6 class="text-white mb-1">Like Him</h6>
+          <p class="text-muted small mb-0">Chromakopia</p>
+          <button class="search-play-btn"><i class="bi bi-play-fill"></i></button>
         </div>
       </div>
-
       <div class="col-6 col-sm-4 col-md-3 col-lg-2">
-        <div class="card bg-dark text-white border-0">
-          <img src="../img/currents.jpg" class="card-img-top rounded-3" alt="5">
-          <div class="card-body text-center p-2">
-            <p class="card-text small">Name 5</p>
-          </div>
+        <div class="search-card">
+          <img src="../img/weeknd.jpg" class="img-fluid rounded-2 mb-3">
+          <h6 class="text-white mb-1">Save Your Tears</h6>
+          <p class="text-muted small mb-0">The Weeknd</p>
+          <button class="search-play-btn"><i class="bi bi-play-fill"></i></button>
         </div>
       </div>
-
-
-
-      <div class="col-6 col-sm-4 col-md-3 col-lg-2">
-        <div class="card bg-dark text-white border-0">
-          <img src="../img/weeknd.jpg" class="card-img-top rounded-3" alt="7">
-          <div class="card-body text-center p-2">
-            <p class="card-text small">Name 6</p>
-          </div>
-        </div>
-      </div>
-
-      <div class="col-6 col-sm-4 col-md-3 col-lg-2">
-        <div class="card bg-dark text-white border-0">
-          <img src="../img/currents.jpg" class="card-img-top rounded-3" alt="8">
-          <div class="card-body text-center p-2">
-            <p class="card-text small">Name 7</p>
-          </div>
-        </div>
-      </div>
-
-      <div class="col-6 col-sm-4 col-md-3 col-lg-2">
-        <div class="card bg-dark text-white border-0">
-          <img src="../img/Graduation.jpg" class="card-img-top rounded-3" alt="9">
-          <div class="card-body text-center p-2">
-            <p class="card-text small">Name 8</p>
-          </div>
-        </div>
-      </div>
-
     </div>
   </div>
 </section>
 
+<div id="player"></div>
 
-<!-- Футер -->
-<footer>
-  <div>
-    <p id="mono-text">2025 MySpotify</p>
-    <p id="sans-text">Telegram: @GreatJobSon</p>
-    <p id="serif-text">GitHub: Greatjobson</p>
-  </div>
+<footer class="text-center py-4">
+  <p>2025 MySpotify — Made with love by GreatJobSon</p>
+  <p>Telegram: @GreatJobSon | GitHub: Greatjobson</p>
 </footer>
+
+<script type="module">
+  import { songs } from "../js/albumDisplay.js";
+  import { initPlayer } from "../js/player.js";
+
+  const searchForm = document.getElementById("search-form");
+  const searchInput = document.getElementById("search-input");
+  const searchResults = document.getElementById("search-results");
+
+  searchForm.addEventListener("submit", (e) => {
+    e.preventDefault();
+    const query = searchInput.value.trim().toLowerCase();
+    if (!query) return;
+
+    const results = songs.filter(s =>
+      s.title.toLowerCase().includes(query) ||
+      s.artist.toLowerCase().includes(query)
+    );
+
+    searchResults.innerHTML = "";
+
+    if (results.length === 0) {
+      searchResults.innerHTML = `<p class="text-muted col-12">Ничего не найдено :(</p>`;
+      return;
+    }
+
+    results.forEach(song => {
+      const col = document.createElement("div");
+      col.className = "col-6 col-sm-4 col-md-3 col-lg-2";
+      col.innerHTML = `
+        <div class="search-card">
+          <img src="${song.img}" class="img-fluid rounded-2 mb-3">
+          <h6 class="text-white mb-1">${song.title}</h6>
+          <p class="text-muted small mb-0">${song.artist}</p>
+          <button class="search-play-btn"><i class="bi bi-play-fill"></i></button>
+        </div>
+      `;
+      searchResults.appendChild(col);
+
+      col.addEventListener("click", () => {
+        window.mySpotifyPlayer.playSong(song);
+      });
+    });
+  });
+
+  document.querySelectorAll("#recently-played .search-card").forEach((card, index) => {
+    card.addEventListener("click", () => {
+      const song = songs.find(s => s.title === card.querySelector("h6").textContent);
+      if (song) {
+        window.mySpotifyPlayer.playSong(song);
+      }
+    });
+  });
+
+  window.addEventListener("DOMContentLoaded", () => {
+    initPlayer("#player");
+  });
+</script>
+
 </body>
 </html>
